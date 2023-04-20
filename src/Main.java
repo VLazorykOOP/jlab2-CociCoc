@@ -4,23 +4,36 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Input id: ");
-        int id = scan.nextInt();
-        System.out.print("Input current Balance: ");
-        int currentBalance = scan.nextInt();
-        System.out.print("Input min Withdrawal Amount: ");
-        int minWithdrawalAmount = scan.nextInt();
-        System.out.print("Input max Withdrawal Amount: ");
-        int maxWithdrawalAmount = scan.nextInt();
+        System.out.print("Input a: ");
+        double a = scan.nextDouble();
+        System.out.print("Input b: ");
+        double b = scan.nextDouble();
+        System.out.print("Input c: ");
+        double c = scan.nextDouble();
 
-        Bankomat bankomat = new Bankomat(id, currentBalance, minWithdrawalAmount, maxWithdrawalAmount);
-        System.out.println(bankomat);
-        System.out.print("Input amount of bills:");
-        int bills = scan.nextInt();
-        bankomat.loadMoney(bills);
+        System.out.print("Input x: ");
+        double x = scan.nextDouble();
+        System.out.print("Input y: ");
+        double y = scan.nextDouble();
 
-        System.out.println("\nHow much money do you want Withdraw?");
-        int withdrawMoney = scan.nextInt();
-        bankomat.withdrawMoney(withdrawMoney);
+        Line line = new Line(a,b,c);
+
+        System.out.println(line);
+
+        if (line.containsPoint(x,y)){
+            System.out.println("Належать прямій");
+        }
+        else {
+            System.out.println("Не належать прямій");
+        }
+
+        if (line.intersection(line) == null){
+            System.out.println("Прямі паралельні");
+        }
+        else {
+            System.out.println(line.intersection(line));
+        }
+
+
     }
 }
